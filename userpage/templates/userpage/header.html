@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+header{
+  background-color: transparent;
+  color: white;
+  position:fixed;
+  z-index: 1;
+  width: 100%;
+  transition: 1s;
+}
+
+.navbarbg{
+background-color: #18445d;
+color: #000;
+}
+.nav li{
+  padding: 0 5px;
+  font-size:16px;
+  font-weight: 600;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
+  
+
+}
+.nav li a{
+  color: rgb(236, 236, 236);
+}
+.nav li a:hover,
+.dropdown:hover{
+  color: #16d4ab;
+  transition: all .5s ;
+  transform: scale(1.1);
+}
+.dropdown{
+  z-index: 999;
+}
+
+    </style>
+</head>
+<body>
+        <header id='navbar' class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between px-3 nav-bar">
+        <div class="col-md-3 mb-2 mb-md-0">
+          <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none align-items-center">
+            <img src="/static/images/logo.png" alt="images" style="width: 70px;">
+            <span class='fs-3 text-light'>Trip Wonder</span>
+          </a>
+        </div>
+
+        <ul class="nav col-12 col-md-auto mb-2 text-decoration-none justify-content-center align-items-center">
+          <li><a href="/" class="nav-link px-2">Home</a></li>
+          <li class='dropdown'><a class="text-decoration-none " href="#" data-bs-toggle="dropdown" aria-expanded="false"> Places to go</a>
+            <ul class=" dropdown-menu bg-dark">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item " href="#">Another action</a></li>
+              <li><a class="dropdown-item " href="#">Something else here</a></li>
+            </ul></li>
+
+          <li class='dropdown mx-2'><a class="text-decoration-none " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Things to do</a>
+            <ul class="dropdown-menu bg-dark">
+              <li><a class="dropdown-item" href="#">Action</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul></li>
+
+          <li><a href="#" class="nav-link px-2">Plan Your Trip</a></li>
+          <li><a href="#" class="nav-link px-2">About</a></li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+          <button type="button" class="btn btn-outline-warning me-2">Login</button>
+          <button type="button" class="btn btn-primary">Sign-up</button>
+        </div>
+      </header>
+
+      <script>
+        const headerbgchange=()=>{
+    var navbar=document.getElementById('navbar');
+    var scrollvalue=window.scrollY;
+    if(scrollvalue > 200){
+        navbar.classList.add('navbarbg');
+    }else{
+        navbar.classList.remove('navbarbg');
+    }
+}
+window.addEventListener('scroll',headerbgchange)
+      </script>
+</body>
+</html>
