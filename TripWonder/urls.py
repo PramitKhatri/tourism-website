@@ -28,5 +28,5 @@ urlpatterns = [
     path('test/',index),
     path('pages/',include('pages.urls')),
     path('',include('userpage.urls')),
-
+    path('',include('location_data.urls')),
 ]
