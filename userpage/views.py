@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from pages.models import Place,Category
+from location_data.models import *
 from django.contrib.auth.decorators import login_required
 from pages.forms import *
 from django.contrib import messages
@@ -8,9 +8,9 @@ from django.contrib import messages
 
 
 def homepage(request):
-    category=Category.objects.all().order_by('-id')[:8]
+    
     context={
-        'categories':category
+        'provinces':Province
     }
     return render(request,'userpage/home.html',context)
 
