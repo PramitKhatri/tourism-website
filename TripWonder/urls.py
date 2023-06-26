@@ -20,14 +20,11 @@ from django.http import HttpResponse
 
 
 
-def index(request):
-    return HttpResponse('this is our custom url page')
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test/',index),
-    path('pages/',include('pages.urls')),
+    
+    
     path('',include('userpage.urls')),
     path('',include('location_data.urls')),
 ]

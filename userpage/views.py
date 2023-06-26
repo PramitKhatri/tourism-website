@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from location_data.models import *
 from django.contrib.auth.decorators import login_required
-from pages.forms import *
 from django.contrib import messages
 
 # Create your views here.

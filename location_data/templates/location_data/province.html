@@ -37,7 +37,7 @@
                 {% for data in province_inf %}
                 <tr>
                     <td>{{data.province}}</td>
-                    <td>{{data.district_name}}</td>
+                    <td><a href="/location/{{str:data.district_name}}/" class="btn btn-primary">{{data.district_name}}</a></td>
                     <td>{{data.district_desc}}</td>
                     <td>
                         <img src="/{{data.district_images}}" alt="" width="100"> <!-- its to be noted taht the province_inf is fetchinf data from Location which has district as an attribute so we are getting the image inside the district which is inside the location-->
