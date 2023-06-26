@@ -192,11 +192,11 @@
         {% for province in provinces %}
         <div class="col">
             <div class="card">
-                <img src="/static/images/everest.jpg" class="card-img-top" alt="image" height="200px">
+                <img src="{{province.province_images}}" class="card-img-top" alt="image" height="200px">
                 <div class="card-body">
-                    <h5 class="card-title">{{province.0}}</h5>
+                    <h5 class="card-title">{{province.province_name}}</h5>
 
-                    <a href="/province/{{province.0}}" class="btn btn-success">View Details</a>
+                    <a href="/province/{{province.province_name}}" class="btn btn-success">View Details</a>
                 </div>
             </div>
         </div>

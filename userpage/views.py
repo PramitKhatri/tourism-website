@@ -7,28 +7,11 @@ from django.contrib import messages
 
 
 def homepage(request):
-    
+    provinces=Province.objects.all()
     context={
-        'provinces':Province
+        'provinces':provinces
     }
     return render(request,'userpage/home.html',context)
-
-def placedetails(request,place_id):
-    place=Place.objects.get(id=place_id)
-    context={
-        'place':place
-    }
-    return render(request,'userpage/placedetails.html',context)
-
-def showplaces(request):
-    places=Place.objects.all()
-    context={
-        'places':places 
-
-    }
-
-    return render (request,'userpage/places.html',context)
-
 
 
 

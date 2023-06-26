@@ -4,6 +4,5 @@ from .views import *
 
 urlpatterns=[
     path('',homepage),
-    # path('category/',showcategory),
 
 ]
