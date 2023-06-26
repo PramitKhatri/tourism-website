@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     'userpage',
     'location_data',
+    'HotelsAndHomestays',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap4"

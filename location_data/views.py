@@ -6,7 +6,8 @@ from . forms import *
 # Create your views here.
 
 def show_location(request,district_name):
-    getlocationdata=Location.objects.filter(district=district_name)
+    district = District.objects.get(district_name=district_name)
+    getlocationdata=Location.objects.filter(district=district)
     context={
         'location_inf':getlocationdata
     }
