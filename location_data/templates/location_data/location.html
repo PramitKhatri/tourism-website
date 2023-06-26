@@ -44,9 +44,9 @@
                     <td>{{location.location_name}}</td>
                     <td>{{location.location_desc}}</td>
                     <td>
-                        {% for i in location.location_images.all %}
-                        <img src="{{i.image.url}}" alt="" width="100">
-                        {% endfor %}
+                        
+                        <img src="/{{location.location_image}}" alt="" width="100">
+                        
                     </td>
                     <td>{{location.best_season}}</td>
                     <td>{{location.event}}</td>

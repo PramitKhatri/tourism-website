@@ -15,14 +15,12 @@ class District(models.Model):
     province=models.CharField(max_length=100,choices=Province)
     district_name=models.CharField(max_length=100)
     district_desc=models.TextField()
-    district_images = models.ManyToManyField('DistrictImageModel', related_name='districts')
+    district_images = models.FileField(upload_to='static/uploads')
 
     def __str__(self):
         return self.district_name
 
-#thss is to be able to input multiple images
-class DistrictImageModel(models.Model):
-    image = models.FileField(upload_to='static/uploads')
+
 
 class Events(models.Model):
     event_name=models.CharField(max_length=100)
@@ -38,15 +36,14 @@ class Location(models.Model):
     district=models.ForeignKey(District, on_delete=models.CASCADE)
     location_name=models.CharField(max_length=100)
     location_desc=models.TextField()
-    location_images = models.ManyToManyField('LocationImageModel', related_name='locations')
+    location_image = models.FileField(upload_to='static/uploads/location',null=True)
     best_season = models.CharField(max_length=10, default='any', choices=(('any', 'any'), ('spring', 'spring'), ('summer', 'summer'), ('autumn', 'autumn'), ('winter', 'winter')))
-    event=models.ForeignKey(Events, on_delete=models.CASCADE, null=True)
+    # event=models.ForeignKey(Events, on_delete=models.CASCADE, null=True)
 
     def __str__(self):
         return self.location_name
     
 
 
-class LocationImageModel(models.Model):
-    image = models.FileField(upload_to='static/uploads/location')
+
 

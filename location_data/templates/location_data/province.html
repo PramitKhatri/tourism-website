@@ -27,29 +27,26 @@
             {% endfor %}
             <table class="table table-bordered table-striped">
                 <tr>
+                    <th>Province</th>
                     <th>District</th>
                     <th> district Description</th>
                     <th> district image</th>
-                    <!-- <th>location name</th>
-                    <th>Description</th>
-                    <th>location image</th> -->
+                    <th>Action</th>
+                   
                 </tr>
                 {% for data in province_inf %}
                 <tr>
-                    <td>{{data.district.district_name}}</td>
-                    <td>{{data.district.district_desc}}</td>
+                    <td>{{data.province}}</td>
+                    <td>{{data.district_name}}</td>
+                    <td>{{data.district_desc}}</td>
                     <td>
-                        {% for districtimg in data.district.district_images.all %}
-                        <img src="{{districtimg.image.url}}" alt="" width="100">
-                        {% endfor %}
+                        <img src="/{{data.district_images}}" alt="" width="100"> <!-- its to be noted taht the province_inf is fetchinf data from Location which has district as an attribute so we are getting the image inside the district which is inside the location-->
                     </td>
-                    <!-- <td>{{location.location_name}}</td>
-                    <td>{{location.location_desc}}</td>
                     <td>
-                        {% for i in location.location_images.all %}
-                        <img src="{{i.image.url}}" alt="" width="100">
-                        {% endfor %}
-                    </td> -->
+                        <a href="/updatedistrict/{{data.id}}/{{data.province}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>&nbsp;&nbsp;
+                        <a href="/deletedistrict/{{data.id}}/{{data.province}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete this district?')"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                    
                     
                     
 
