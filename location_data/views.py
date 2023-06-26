@@ -26,11 +26,9 @@ def add_district(request):
     if request.method=='POST':
         form=DistrictForm(request.POST,request.FILES)
         if form.is_valid():
-            district=form.save(commit=False) # Save the form data without committing to the database
-            province_name=form.cleaned_data['province']  #get the province name in province_name
-            district.save() # Save the district to the database
+            form.save()
             messages.add_message(request,messages.SUCCESS,'District added succesfully')
-            return redirect('show_province_data',province_name=province_name)
+            return redirect('/adddistrict')
         else:
             messages.add_message(request,messages.ERROR,'Failed to add district')
             return render(request,'location_data/add_district.html',{'forms':form})
@@ -86,3 +84,28 @@ def add_location(request):
     }
         
     return render(request,'location_data/add_location.html',context)
+
+    # this is to update location, similar to update district
+def updatelocation(request,district_name,location_id):
+    locationInstance=Location.objects.get(id=location_id)
+    if request.method=='POST':
+        form=LocationForm(request.POST,request.FILES,instance=locationInstance)
+        if form.is_valid:
+            form.save()
+            messages.add_message(request,messages.SUCCESS,'Location Updated successfully')
+            return redirect('/location')
+        else:
+            messages.add_message(request,messages.ERROR,'Failed to update Location')
+            return render(request,'location_data/update_location.html',{'forms':form})
+
+    context={
+        'forms':LocationForm(instance=locationInstance)
+    }
+    return render(request,'location_data/update_location.html',context)
+
+
+def deletelocation(request,district_name,location_id):
+    getlocation=Location.objects.get(id=location_id)
+    getlocation.delete()
+    messages.add_message(request,messages.SUCCESS,'Location deleted successfully')
+    return redirect('/location')

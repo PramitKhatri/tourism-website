@@ -51,8 +51,8 @@
                     <td>{{location.best_season}}</td>
                     <td>{{location.event}}</td>
                     <td>
-                        <a href="/products/updateproduct/{{product.id}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>&nbsp;&nbsp;
-                        <a href="/products/deleteproduct/{{product.id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete this product?')"><i class="fa-solid fa-trash"></i></a>
+                        <a href="/updatelocation/{{location.district.district_name}}/{{location.id}}" class="btn btn-primary"><i class="fa-regular fa-pen-to-square"></i></a>&nbsp;&nbsp;
+                        <a href="/deletelocation/{{location.district.district_name}}/{{location.id}}" class="btn btn-danger" onclick="return confirm('Are you sure want to delete this Location?')"><i class="fa-solid fa-trash"></i></a>
                     </td>
 
                 </tr>
