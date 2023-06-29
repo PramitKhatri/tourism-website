@@ -1,7 +1,7 @@
 from django.db import models
 
 # Create your models here.
-Province=(
+province=(
     ("Sudurpaschim","Sudurpaschim"),
     ("Karnali Province","Karnali Province"),
     ("Lumbini Province","Lumbini Province"),
@@ -10,9 +10,19 @@ Province=(
     ("Madesh Province","Madesh Province"),
     ("Province 1","Province 1"),
 )
+# hi I tried to remove the tuples and made the Province model as foreign key in district but coudn't and
+# it keep showing errors. I don't know how to fix that so tuples and Province models are existing side by side as
+#  the data in Province model matches the tuple and changing any of them will cause errors. It works for now show let it be.
+class Province(models.Model):
+    province_name=models.CharField(max_length=100)
+    province_desc=models.TextField()
+    province_images=models.FileField(upload_to='static/uploads/province')
+
+    def __str__(self):
+        return self.province_name
 
 class District(models.Model):
-    province=models.CharField(max_length=100,choices=Province)
+    province=models.CharField(max_length=100,choices=province)
     district_name=models.CharField(max_length=100)
     district_desc=models.TextField()
     district_images = models.FileField(upload_to='static/uploads')
