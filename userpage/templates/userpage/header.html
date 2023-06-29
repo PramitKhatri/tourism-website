@@ -73,8 +73,13 @@ color: #000;
         </ul>
 
         <div class="col-md-3 text-end">
-          <button type="button" class="btn btn-outline-warning me-2">Login</button>
-          <button type="button" class="btn btn-primary">Sign-up</button>
+          {% if user.is_authenticated %}
+          <a href="/logout" class="btn btn-danger">Logout</a>
+          <a href="#" class="btn btn-success">{{user.username}}</a>
+          {% else %}
+          <a href="/login" type="button" class="btn btn-outline-warning me-2">Login</a>
+          <a href="/registeruser"  class="btn btn-primary">Sign-up</a>
+          {% endif %}
         </div>
       </header>
 
