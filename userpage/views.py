@@ -11,7 +11,7 @@ from django.contrib.auth import authenticate,login,logout
 
 
 def homepage(request):
-    provinces=Province.objects.all()
+    provinces=Province.objects.all().order_by('id')[:8]
     context={
         'provinces':provinces
     }
